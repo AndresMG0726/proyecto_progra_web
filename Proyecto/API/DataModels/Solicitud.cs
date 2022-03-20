@@ -10,7 +10,7 @@ namespace API.DataModels
     public partial class Solicitud
     {
         public int IdSolicitud { get; set; }
-        public int IdUsuario { get; set; }
+        public int id_solicitud { get; set; }
         public int IdEstado { get; set; }
         public int IdTipo { get; set; }
         public string ComentarioSolicitante { get; set; }

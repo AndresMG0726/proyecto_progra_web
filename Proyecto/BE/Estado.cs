@@ -9,7 +9,47 @@ using DAL.DO.Interfaces;
 
 namespace BE
 {
-    public class Estado
+    public class Estado : ICRUD<data.Estado>
     {
+        private dal.Estado _dal;
+        public Estado(NDbContext dbContext)
+        {
+            _dal = new dal.Estado(dbContext);
+        }
+
+        public void Delete(data.Estado t)
+        {
+            _dal.Delete(t);
+        }
+
+        public IEnumerable<data.Estado> GetAll()
+        {
+            return _dal.GetAll();
+        }
+
+        public Task<IEnumerable<data.Estado>> GetAllAsync()
+        {
+            throw new NotImplementedException();
+        }
+
+        public data.Estado GetOneById(int id)
+        {
+            return _dal.GetOneById(id);
+        }
+
+        public Task<data.Estado> GetOneByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Inset(data.Estado t)
+        {
+            _dal.Inset(t);
+        }
+
+        public void Update(data.Estado t)
+        {
+            _dal.Update(t);
+        }
     }
 }

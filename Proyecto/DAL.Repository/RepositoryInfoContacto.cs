@@ -9,19 +9,19 @@ using data = DAL.DO.Objects;
 
 namespace DAL.Repository
 {
-    class RepositoryInfoContacto : Repository<data.InfoContactoUsuario>, IRepositoryInfoContacto
+    public class RepositoryInfoContacto : Repository<data.InfoContactoUsuario>, IRepositoryInfoContacto
     {
         public RepositoryInfoContacto(NDbContext _dbContext) : base(_dbContext)
         {
 
         }
 
-        public Task<IEnumerable<Solicitud>> GetAllAsync()
+        public Task<IEnumerable<InfoContactoUsuario>> GetAllAsync()
         {
             throw new NotImplementedException();
         }
 
-        public Task<Solicitud> GetOneByIdAsinc(int id_rol)
+        public Task<InfoContactoUsuario> GetOneByIdAsinc(int id_usuario, int id_rol_cont)
         {
             throw new NotImplementedException();
         }

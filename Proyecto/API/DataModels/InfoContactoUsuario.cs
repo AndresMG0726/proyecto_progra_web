@@ -10,7 +10,7 @@ namespace API.DataModels
     public partial class InfoContactoUsuario
     {
         public int IdInfo { get; set; }
-        public int IdUsuario { get; set; }
+        public int id_info { get; set; }
         public string NombreCompletoContacto { get; set; }
         public int IdRolCont { get; set; }
         public int TelefonoContacto { get; set; }

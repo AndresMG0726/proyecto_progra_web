@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace API.DataModels
+namespace API.NE.Models
 {
     public partial class Usuario
     {
@@ -37,4 +37,3 @@ namespace API.DataModels
         public virtual ICollection<Solicitud> Solicitud { get; set; }
     }
 }
-

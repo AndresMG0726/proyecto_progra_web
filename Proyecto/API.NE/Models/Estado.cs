@@ -5,16 +5,17 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace API.DataModels
+namespace API.NE.Models
 {
-    public partial class Tipo
+    public partial class Estado
     {
-        public Tipo()
+        public Estado()
         {
             Solicitud = new HashSet<Solicitud>();
         }
-        public int IdTipo { get; set; }
-        public string DescripcionTipo { get; set; }
+
+        public int IdEstado { get; set; }
+        public string DescripcionEstado { get; set; }
 
         public virtual ICollection<Solicitud> Solicitud { get; set; }
     }

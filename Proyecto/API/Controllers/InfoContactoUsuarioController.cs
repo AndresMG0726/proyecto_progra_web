@@ -55,7 +55,7 @@ namespace API.Controllers
             [HttpPut("{id}")]
             public async Task<IActionResult> PutInfoContactoUsuario(int id, models.InfoContactoUsuario infoContactoUsuario)
             {
-                if (id != infoContactoUsuario.id_info)
+                if (id != infoContactoUsuario.IdInfo)
                 {
                     return BadRequest();
                 }
@@ -95,7 +95,7 @@ namespace API.Controllers
                     BadRequest();
                 }
 
-                return CreatedAtAction("GetProducts", new { id = infoContactoUsuario.id_info }, infoContactoUsuario);
+                return CreatedAtAction("GetProducts", new { id = infoContactoUsuario.IdInfo }, infoContactoUsuario);
             }
 
             // DELETE: api/InfoContactoUsuario/5

@@ -10,10 +10,10 @@ namespace DAL.DO.Objects
     public partial class HorasExtra
     {
         public int IdHE { get; set; }
-        public int IdUsuario { get; set; }
-        public DateTime Dia { get; set; }
-        public int HoraInicio { get; set; }
-        public int HoraFin { get; set; }
+        public int? IdUsuario { get; set; }
+        public DateTime? Dia { get; set; }
+        public int? HoraInicio { get; set; }
+        public int? HoraFin { get; set; }
 
         public virtual Usuario IdUsuarioNavigation { get; set; }
     }

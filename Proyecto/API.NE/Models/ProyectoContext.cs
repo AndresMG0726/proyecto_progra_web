@@ -1,21 +1,24 @@
-﻿using DAL.DO.Objects;
+﻿using System;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DAL.EF
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace API.NE.Models
 {
-    public partial class NDbContext : DbContext
+    public partial class ProyectoContext : DbContext
     {
-        public NDbContext()
+        public ProyectoContext()
         {
         }
 
-        public NDbContext(DbContextOptions<NDbContext> options)
-           : base(options)
+        public ProyectoContext(DbContextOptions<ProyectoContext> options)
+            : base(options)
         {
         }
+
         public virtual DbSet<Departamento> Departamento { get; set; }
         public virtual DbSet<Estado> Estado { get; set; }
         public virtual DbSet<HorasExtra> HorasExtra { get; set; }

@@ -25,10 +25,8 @@ namespace DAL.DO.Objects
         public string NombreUsuario { get; set; }
         public string PrimerApellidoUsuario { get; set; }
         public string SegundoApellidoUsuario { get; set; }
-        public int IdJob { get; set; }
-        public int IdDepartamento { get; set; }
-        public int Encargado { get; set; }
-        public string ContrasennaUsuario { get; set; }
+        public int? IdJob { get; set; }
+        public int? IdDepartamento { get; set; }
         public DateTime? FechaContratacion { get; set; }
 
         public virtual Departamento IdDepartamentoNavigation { get; set; }

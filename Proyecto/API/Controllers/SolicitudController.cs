@@ -54,7 +54,7 @@ namespace API.Controllers
             [HttpPut("{id}")]
             public async Task<IActionResult> PutSolicitud(int id, models.Solicitud solicitud)
             {
-                if (id != solicitud.id_solicitud)
+                if (id != solicitud.IdSolicitud)
                 {
                     return BadRequest();
                 }
@@ -94,7 +94,7 @@ namespace API.Controllers
                     BadRequest();
                 }
 
-                return CreatedAtAction("GetSolicitud", new { id = solicitud.id_solicitud }, solicitud);
+                return CreatedAtAction("GetSolicitud", new { id = solicitud.IdSolicitud }, solicitud);
             }
 
             // DELETE: api/Solicitud/5

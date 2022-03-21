@@ -1,8 +1,8 @@
 use master;
 	
-CREATE DATABASE PRUEBA1;
+CREATE DATABASE Proyecto;
 
-USE PRUEBA1;
+USE Proyecto;
 
 CREATE TABLE rol(           
 	id_rol int IDENTITY(1,1),              
@@ -53,10 +53,8 @@ CREATE TABLE usuario(
     nombre_usuario varchar(100) NOT NULL, 
 	primer_apellido_usuario varchar(100) NOT NULL,    
     segundo_apellido_usuario varchar(100) NOT NULL,    
-	id_job int NOT NULL, 
-	id_departamento int NOT NULL,
-    encargado int NOT NULL,                                                               
-    Contrasenna_usuario varchar(200) NOT NULL,                                                                
+	id_job int, 
+	id_departamento int,                                                                                                                           
 	fechaContratacion date,
     PRIMARY KEY (id_usuario),                                              
 	FOREIGN KEY (id_rol) REFERENCES rol (id_rol), 
@@ -79,8 +77,8 @@ CREATE TABLE usuario(
 	id_usuario int NOT NULL,              
 	id_estado int NOT NULL,  
 	id_tipo int  NOT NULL,
-	ComentarioSolicitante varchar(100) NOT NULL, 
-	ComentarioEncargado varchar(100) NOT NULL,
+	ComentarioSolicitante varchar(100), 
+	ComentarioEncargado varchar(100),
 	fecha_emicion date
     PRIMARY KEY (id_solicitud),
 	FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario),
@@ -90,9 +88,9 @@ CREATE TABLE usuario(
 
 	CREATE TABLE horas_extra(           
 	id_h_e int IDENTITY(1,1) NOT NULL,
-	id_usuario int NOT NULL,              
-	dia date NOT NULL,
-	hora_inicio int NOT NULL,  
-	hora_fin int  NOT NULL,  
+	id_usuario int,              
+	dia date,
+	hora_inicio int,  
+	hora_fin int,  
 	PRIMARY KEY (id_h_e),
 	FOREIGN KEY (id_usuario) REFERENCES usuario (id_usuario));

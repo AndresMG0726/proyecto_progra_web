@@ -9,6 +9,6 @@ namespace DAL.Repository
     public interface IRepositorySolicitud : IRepository<data.Solicitud>
     {
         Task<IEnumerable<data.Solicitud>> GetAllAsync();
-        Task<data.Solicitud> GetOneByIdAsinc(int id_usuario, int id_tipo, int id_estado);
+        Task<data.Solicitud> GetOneByIdAsinc(int id);
     }
 }

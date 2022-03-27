@@ -37,13 +37,10 @@ namespace DAL
             return repo.GetOnebyID(id);
         }
 
+
         public Task<data.Solicitud> GetOneByIdAsync(int id)
         {
-            return null;
-        }
-        public Task<data.Solicitud> GetOneByIdAsync(int id_usuario, int id_tipo,int id)
-        {
-            return repo.GetOneByIdAsinc(id_usuario, id_tipo, id);
+            return repo.GetOneByIdAsinc(id);
         }
 
         public void Inset(data.Solicitud t)

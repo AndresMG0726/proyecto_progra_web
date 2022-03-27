@@ -21,9 +21,9 @@ namespace DAL.Repository
             throw new NotImplementedException();
         }
 
-        public Task<InfoContactoUsuario> GetOneByIdAsinc(int id_usuario, int id_rol_cont)
+        public Task<InfoContactoUsuario> GetOneByIdAsinc(int id_usuario)
         {
-            throw new NotImplementedException();
+            return _db.InfoContactoUsuario.SingleOrDefaultAsync(n => n.IdInfo == id_usuario);
         }
 
         private NDbContext _db

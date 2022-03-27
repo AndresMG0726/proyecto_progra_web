@@ -37,9 +37,9 @@ namespace BE
             return _dal.GetOneById(id);
         }
 
-        public Task<data.InfoContactoUsuario> GetOneByIdAsync(int id)
+        public async Task<data.InfoContactoUsuario> GetOneByIdAsync(int id)
         {
-            return _dal.GetOneByIdAsync(id);
+            return await _dal.GetOneByIdAsync(id);
         }
 
         public void Inset(data.InfoContactoUsuario t)

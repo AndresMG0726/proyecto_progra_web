@@ -10,6 +10,6 @@ namespace DAL.Repository
     interface IRepositoryInfoContacto : IRepository<data.InfoContactoUsuario>
     {
         Task<IEnumerable<data.InfoContactoUsuario>> GetAllAsync();
-        Task<data.InfoContactoUsuario> GetOneByIdAsinc(int id_usuario, int id_rol_cont);
+        Task<data.InfoContactoUsuario> GetOneByIdAsinc(int id_usuario);
     }
 }

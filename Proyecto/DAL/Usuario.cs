@@ -39,11 +39,7 @@ namespace DAL
 
         public Task<data.Usuario> GetOneByIdAsync(int id)
         {
-            throw new NotImplementedException();
-        }
-        public Task<data.Usuario> GetOneByIdAsync(int id_job,int id_departamento,int id_rol)
-        {
-            return repo.GetOneByIdAsinc(id_job, id_departamento, id_rol);
+            return repo.GetOneByIdAsinc(id);
         }
 
         public void Inset(data.Usuario t)

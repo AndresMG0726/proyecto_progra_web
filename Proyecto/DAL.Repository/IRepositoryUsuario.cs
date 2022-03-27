@@ -9,6 +9,6 @@ namespace DAL.Repository
     public interface IRepositoryUsuario : IRepository<data.Usuario>
     {
         Task<IEnumerable<data.Usuario>> GetAllAsync();
-        Task<data.Usuario> GetOneByIdAsinc(int id_job, int id_departamento, int id_rol);
+        Task<data.Usuario> GetOneByIdAsinc(int id);
     }
 }

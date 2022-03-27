@@ -20,9 +20,9 @@ namespace DAL.Repository
             throw new NotImplementedException();
         }
 
-        public Task<Usuario> GetOneByIdAsinc(int id_job, int id_departamento, int id_rol)
+        public async Task<Usuario> GetOneByIdAsinc(int id)
         {
-            throw new NotImplementedException();
+            return await _db.Usuario.SingleOrDefaultAsync(n => n.IdUsuario == id);
         }
         private NDbContext _db
         {

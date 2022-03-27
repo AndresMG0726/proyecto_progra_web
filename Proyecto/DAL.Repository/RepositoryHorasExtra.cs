@@ -21,9 +21,10 @@ namespace DAL.Repository
             throw new NotImplementedException();
         }
 
-        public Task<HorasExtra> GetOneByIdAsinc(int IdUsuario)
+        public async Task<HorasExtra> GetOneByIdAsinc(int IdUsuario)
         {
-            throw new NotImplementedException();
+
+            return await _db.HorasExtra.SingleOrDefaultAsync(n => n.IdHE == IdUsuario);
         }
 
         private NDbContext _db

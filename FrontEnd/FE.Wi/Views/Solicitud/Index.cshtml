@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FE.Wi.Models.Solicitud>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioSolicitante)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComentarioEncargado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaEmicion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEstadoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdTipoNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentarioSolicitante)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComentarioEncargado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaEmicion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEstadoNavigation.DescripcionEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdTipoNavigation.DescripcionTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Contrasenna)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdSolicitud">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IdSolicitud">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IdSolicitud">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -13,12 +13,16 @@ namespace FE.Controllers
     public class SolicitudController : Controller
     {
         private readonly ISolicitudService solicitudService;
-        private readonly ICategoriesService solicitudService;
+        private readonly IUsuarioService usuarioService;
+        private readonly ITipoService tipoService;
+        private readonly IEstadoService estadoService;
 
-        public SolicitudController(ISolicitudService _solicitudService, ICategoriesService _categoriesService)
+        public SolicitudController(ISolicitudService _solicitudService, IUsuarioService _usuarioService, ITipoService _tipoService, IEstadoService _estadoService)
         {
             solicitudService = _solicitudService;
-            solicitudService = _categoriesService;
+            usuarioService = _usuarioService;
+            tipoService = _tipoService;
+            estadoService = _estadoService;
         }
 
         // GET: Solicitud
@@ -47,13 +51,9 @@ namespace FE.Controllers
         // GET: Solicitud/Create
         public IActionResult Create()
         {
-            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "DescripcionEstado");
-            ViewData["IdTipo"] = new SelectList(_context.Tipo, "IdTipo", "DescripcionTipo");
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "IdUsuario", "Contrasenna");
-            return View();
-
-            ViewData["CategoryId"] = new SelectList(solicitudService.GetAll(), "CategoryId", "CategoryName");
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName");
+            ViewData["IdEstado"] = new SelectList(estadoService.GetAll(), "IdEstado", "DescripcionEstado");
+            ViewData["IdTipo"] = new SelectList(tipoService.GetAll(), "IdTipo", "DescripcionTipo");
+            ViewData["IdUsuario"] = new SelectList(usuarioService.GetAll(), "IdUsuario", "Contrasenna");
             return View();
         }
 
@@ -69,13 +69,9 @@ namespace FE.Controllers
                 solicitudService.Insert(solicitud);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "DescripcionEstado", solicitud.IdEstado);
-            ViewData["IdTipo"] = new SelectList(_context.Tipo, "IdTipo", "DescripcionTipo", solicitud.IdTipo);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "IdUsuario", "Contrasenna", solicitud.IdUsuario);
-            return View(solicitud);
-
-            ViewData["CategoryId"] = new SelectList(solicitudService.GetAll(), "CategoryId", "CategoryName", solicitud.CategoryId);
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", solicitud.SupplierId);
+            ViewData["IdEstado"] = new SelectList(estadoService.GetAll(), "IdEstado", "DescripcionEstado", solicitud.IdEstado);
+            ViewData["IdTipo"] = new SelectList(tipoService.GetAll(), "IdTipo", "DescripcionTipo", solicitud.IdTipo);
+            ViewData["IdUsuario"] = new SelectList(usuarioService.GetAll(), "IdUsuario", "Contrasenna", solicitud.IdUsuario);
             return View(solicitud);
         }
 
@@ -92,13 +88,9 @@ namespace FE.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "DescripcionEstado", solicitud.IdEstado);
-            ViewData["IdTipo"] = new SelectList(_context.Tipo, "IdTipo", "DescripcionTipo", solicitud.IdTipo);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "IdUsuario", "Contrasenna", solicitud.IdUsuario);
-            return View(solicitud);
-
-            ViewData["CategoryId"] = new SelectList(solicitudService.GetAll(), "CategoryId", "CategoryName", solicitud.CategoryId);
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", solicitud.SupplierId);
+            ViewData["IdEstado"] = new SelectList(estadoService.GetAll(), "IdEstado", "DescripcionEstado", solicitud.IdEstado);
+            ViewData["IdTipo"] = new SelectList(tipoService.GetAll(), "IdTipo", "DescripcionTipo", solicitud.IdTipo);
+            ViewData["IdUsuario"] = new SelectList(usuarioService.GetAll(), "IdUsuario", "Contrasenna", solicitud.IdUsuario);
             return View(solicitud);
         }
 
@@ -133,12 +125,9 @@ namespace FE.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEstado"] = new SelectList(_context.Estado, "IdEstado", "DescripcionEstado", solicitud.IdEstado);
-            ViewData["IdTipo"] = new SelectList(_context.Tipo, "IdTipo", "DescripcionTipo", solicitud.IdTipo);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "IdUsuario", "Contrasenna", solicitud.IdUsuario);
-            return View(solicitud);
-
-            ViewData["IdUsuario"] = new SelectList(solicitudService.GetAll(), "IdUsuario", "Contrasenna", horasExtra.IdUsuario);
+            ViewData["IdEstado"] = new SelectList(estadoService.GetAll(), "IdEstado", "DescripcionEstado", solicitud.IdEstado);
+            ViewData["IdTipo"] = new SelectList(tipoService.GetAll(), "IdTipo", "DescripcionTipo", solicitud.IdTipo);
+            ViewData["IdUsuario"] = new SelectList(usuarioService.GetAll(), "IdUsuario", "Contrasenna", solicitud.IdUsuario);
             return View(solicitud);
         }
 

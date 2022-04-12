@@ -36,8 +36,16 @@ namespace FE
             services.AddControllersWithViews();
             services.AddRazorPages();
 
-            services.AddScoped<ICategoriesService, CategoriesService>();
-            services.AddScoped<IProductsService, ProductsService>();
+            services.AddScoped<IDepartamentoService, departamentoService>();
+            services.AddScoped<IEstadoService, estadoService>();
+            services.AddScoped<IHorasExtraService, horasExtraService>();
+            services.AddScoped<IInfoContactoUsuarioService, infoContactoUsuarioService>();
+            services.AddScoped<IJobService, IJobService>();
+            services.AddScoped<IRolContactoService, rolcontactoService>();
+            services.AddScoped<IRolService, rolService>();
+            services.AddScoped<ISolicitudService, solicitudService>();
+            services.AddScoped<ITipoService, TipoService>();
+            services.AddScoped<IUsuarioService, usuarioService>();
 
         }
 

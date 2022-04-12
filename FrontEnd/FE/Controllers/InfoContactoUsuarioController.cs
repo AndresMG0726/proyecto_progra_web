@@ -13,12 +13,12 @@ namespace FE.Controllers
     public class InfoContactoUsuarioController : Controller
     {
         private readonly IInfoContactoUsuarioService infoContactoUsuarioService;
-        private readonly ICategoriesService infoContactoUsuarioService;
+        private readonly IRolContactoService rolcontactoService;
 
-        public InfoContactoUsuarioController(IInfoContactoUsuarioService _infoContactoUsuarioService, ICategoriesService _categoriesService)
+        public InfoContactoUsuarioController(IInfoContactoUsuarioService _infoContactoUsuarioService, IRolContactoService _rolcontactoService)
         {
             infoContactoUsuarioService = _infoContactoUsuarioService;
-            infoContactoUsuarioService = _categoriesService;
+            rolcontactoService = _rolcontactoService;
         }
 
         // GET: InfoContactoUsuario
@@ -47,12 +47,8 @@ namespace FE.Controllers
         // GET: InfoContactoUsuario/Create
         public IActionResult Create()
         {
-            ViewData["IdRolCont"] = new SelectList(_context.RolContacto, "IdRolCont", "DescRolCont");
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "IdUsuario", "Contrasenna");
-            return View();
-           
-            ViewData["CategoryId"] = new SelectList(infoContactoUsuarioService.GetAll(), "CategoryId", "CategoryName");
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName");
+            ViewData["IdRolCont"] = new SelectList(rolcontactoService.GetAll(), "IdRolCont", "DescRolCont");
+            ViewData["IdUsuario"] = new SelectList(infoContactoUsuarioService.GetAll(), "IdUsuario", "Contrasenna");
             return View();
         }
 
@@ -68,9 +64,9 @@ namespace FE.Controllers
                 infoContactoUsuarioService.Insert(infoContactoUsuario);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CategoryId"] = new SelectList(infoContactoUsuarioService.GetAll(), "CategoryId", "CategoryName", infoContactoUsuario.CategoryId);
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", infoContactoUsuario.SupplierId);
-            return View();
+            ViewData["IdRolCont"] = new SelectList(rolcontactoService.GetAll(), "IdRolCont", "DescRolCont", infoContactoUsuario.IdRolCont);
+            ViewData["IdUsuario"] = new SelectList(infoContactoUsuarioService.GetAll(), "IdUsuario", "Contrasenna", infoContactoUsuario.IdUsuario);
+            return View(infoContactoUsuario);
         }
 
         // GET: InfoContactoUsuario/Edit/5
@@ -86,8 +82,9 @@ namespace FE.Controllers
             {
                 return NotFound();
             }
-            ViewData["CategoryId"] = new SelectList(infoContactoUsuarioService.GetAll(), "CategoryId", "CategoryName", infoContactoUsuario.CategoryId);
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", infoContactoUsuario.SupplierId);
+
+            ViewData["IdRolCont"] = new SelectList(rolcontactoService.GetAll(), "IdRolCont", "DescRolCont", infoContactoUsuario.IdRolCont);
+            ViewData["IdUsuario"] = new SelectList(infoContactoUsuarioService.GetAll(), "IdUsuario", "Contrasenna", infoContactoUsuario.IdUsuario);
             return View(infoContactoUsuario);
         }
 
@@ -98,7 +95,7 @@ namespace FE.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("IdInfo,IdUsuario,NombreCompletoContacto,IdRolCont,TelefonoContacto")] InfoContactoUsuario infoContactoUsuario)
         {
-            if (id != infoContactoUsuario.ProductId)
+            if (id != infoContactoUsuario.IdInfo)
             {
                 return NotFound();
             }
@@ -122,11 +119,8 @@ namespace FE.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdRolCont"] = new SelectList(_context.RolContacto, "IdRolCont", "DescRolCont", infoContactoUsuario.IdRolCont);
-            ViewData["IdUsuario"] = new SelectList(_context.Usuario, "IdUsuario", "Contrasenna", infoContactoUsuario.IdUsuario);
-            return View(infoContactoUsuario);
-
-            ViewData["IdUsuario"] = new SelectList(infoContactoUsuarioService.GetAll(), "IdUsuario", "Contrasenna", horasExtra.IdUsuario);
+            ViewData["IdRolCont"] = new SelectList(rolcontactoService.GetAll(), "IdRolCont", "DescRolCont", infoContactoUsuario.IdRolCont);
+            ViewData["IdUsuario"] = new SelectList(infoContactoUsuarioService.GetAll(), "IdUsuario", "Contrasenna", infoContactoUsuario.IdUsuario);
             return View(infoContactoUsuario);
         }
 

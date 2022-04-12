@@ -13,12 +13,17 @@ namespace FE.Controllers
     public class UsuarioController : Controller
     {
         private readonly IUsuarioService usuarioService;
-        private readonly ICategoriesService categoriesService;
+        private readonly IDepartamentoService departamentoService;
+        private readonly IJobService jobService;
+        private readonly IRolService rolService;
 
-        public UsuarioController(IUsuarioService _usuarioService, ICategoriesService _categoriesService)
+
+        public UsuarioController(IUsuarioService _usuarioService, IDepartamentoService _departamentoService, IJobService _jobService, IRolService _rolService)
         {
             usuarioService = _usuarioService;
-            categoriesService = _categoriesService;
+            departamentoService = _departamentoService;
+            jobService = _jobService;
+            rolService = _rolService;
         }
 
         // GET: Usuario
@@ -47,13 +52,9 @@ namespace FE.Controllers
         // GET: Usuario/Create
         public IActionResult Create()
         {
-            ViewData["IdDepartamento"] = new SelectList(_context.Departamento, "IdDepartamento", "DescripcionDepartamento");
-            ViewData["IdJob"] = new SelectList(_context.Job, "IdJob", "DescripcionJob");
-            ViewData["IdRol"] = new SelectList(_context.Rol, "IdRol", "DescRol");
-            return View();
-
-            ViewData["CategoryId"] = new SelectList(categoriesService.GetAll(), "CategoryId", "CategoryName");
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName");
+            ViewData["IdDepartamento"] = new SelectList(departamentoService.GetAll(), "IdDepartamento", "DescripcionDepartamento");
+            ViewData["IdJob"] = new SelectList(jobService.GetAll(), "IdJob", "DescripcionJob");
+            ViewData["IdRol"] = new SelectList(rolService.GetAll(), "IdRol", "DescRol");
             return View();
         }
 
@@ -69,13 +70,9 @@ namespace FE.Controllers
                 usuarioService.Insert(usuario);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdDepartamento"] = new SelectList(_context.Departamento, "IdDepartamento", "DescripcionDepartamento", usuario.IdDepartamento);
-            ViewData["IdJob"] = new SelectList(_context.Job, "IdJob", "DescripcionJob", usuario.IdJob);
-            ViewData["IdRol"] = new SelectList(_context.Rol, "IdRol", "DescRol", usuario.IdRol);
-            return View(usuario);
-
-            ViewData["CategoryId"] = new SelectList(categoriesService.GetAll(), "CategoryId", "CategoryName", usuario.CategoryId);
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", usuario.SupplierId);
+            ViewData["IdDepartamento"] = new SelectList(departamentoService.GetAll(), "IdDepartamento", "DescripcionDepartamento", usuario.IdDepartamento);
+            ViewData["IdJob"] = new SelectList(jobService.GetAll(), "IdJob", "DescripcionJob", usuario.IdJob);
+            ViewData["IdRol"] = new SelectList(rolService.GetAll(), "IdRol", "DescRol", usuario.IdRol);
             return View(usuario);
         }
 
@@ -92,13 +89,9 @@ namespace FE.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdDepartamento"] = new SelectList(_context.Departamento, "IdDepartamento", "DescripcionDepartamento", usuario.IdDepartamento);
-            ViewData["IdJob"] = new SelectList(_context.Job, "IdJob", "DescripcionJob", usuario.IdJob);
-            ViewData["IdRol"] = new SelectList(_context.Rol, "IdRol", "DescRol", usuario.IdRol);
-            return View(usuario);
-
-            ViewData["CategoryId"] = new SelectList(categoriesService.GetAll(), "CategoryId", "CategoryName", usuario.CategoryId);
-            //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName", usuario.SupplierId);
+            ViewData["IdDepartamento"] = new SelectList(departamentoService.GetAll(), "IdDepartamento", "DescripcionDepartamento", usuario.IdDepartamento);
+            ViewData["IdJob"] = new SelectList(jobService.GetAll(), "IdJob", "DescripcionJob", usuario.IdJob);
+            ViewData["IdRol"] = new SelectList(rolService.GetAll(), "IdRol", "DescRol", usuario.IdRol);
             return View(usuario);
         }
 
@@ -133,12 +126,9 @@ namespace FE.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdDepartamento"] = new SelectList(_context.Departamento, "IdDepartamento", "DescripcionDepartamento", usuario.IdDepartamento);
-            ViewData["IdJob"] = new SelectList(_context.Job, "IdJob", "DescripcionJob", usuario.IdJob);
-            ViewData["IdRol"] = new SelectList(_context.Rol, "IdRol", "DescRol", usuario.IdRol);
-            return View(usuario);
-
-            ViewData["IdUsuario"] = new SelectList(categoriesService.GetAll(), "IdUsuario", "Contrasenna", horasExtra.IdUsuario);
+            ViewData["IdDepartamento"] = new SelectList(departamentoService.GetAll(), "IdDepartamento", "DescripcionDepartamento", usuario.IdDepartamento);
+            ViewData["IdJob"] = new SelectList(jobService.GetAll(), "IdJob", "DescripcionJob", usuario.IdJob);
+            ViewData["IdRol"] = new SelectList(rolService.GetAll(), "IdRol", "DescRol", usuario.IdRol);
             return View(usuario);
         }
 

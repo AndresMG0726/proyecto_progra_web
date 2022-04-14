@@ -40,7 +40,7 @@ namespace FE.Identity
             services.AddScoped<IEstadoService, estadoService>();
             services.AddScoped<IHorasExtraService, horasExtraService>();
             services.AddScoped<IInfoContactoUsuarioService, infoContactoUsuarioService>();
-            services.AddScoped<IJobService, IJobService>();
+            services.AddScoped<IJobService2, jobService>();
             services.AddScoped<IRolContactoService, rolcontactoService>();
             services.AddScoped<IRolService, rolService>();
             services.AddScoped<ISolicitudService, solicitudService>();

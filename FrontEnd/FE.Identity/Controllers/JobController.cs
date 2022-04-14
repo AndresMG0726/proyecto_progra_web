@@ -12,9 +12,9 @@ namespace FE.Identity.Controllers
 {
     public class JobController : Controller
     {
-        private readonly IJobService jobService;
+        private readonly IJobService2 jobService;
 
-        public JobController(IJobService _jobService)
+        public JobController(IJobService2 _jobService)
         {
             jobService = _jobService;
         }

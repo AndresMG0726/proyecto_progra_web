@@ -14,11 +14,11 @@ namespace FE.Identity.Controllers
     {
         private readonly IUsuarioService usuarioService;
         private readonly IDepartamentoService departamentoService;
-        private readonly IJobService jobService;
+        private readonly IJobService2 jobService;
         private readonly IRolService rolService;
 
 
-        public UsuarioController(IUsuarioService _usuarioService, IDepartamentoService _departamentoService, IJobService _jobService, IRolService _rolService)
+        public UsuarioController(IUsuarioService _usuarioService, IDepartamentoService _departamentoService, IJobService2 _jobService, IRolService _rolService)
         {
             usuarioService = _usuarioService;
             departamentoService = _departamentoService;

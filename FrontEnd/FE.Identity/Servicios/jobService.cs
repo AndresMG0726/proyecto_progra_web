@@ -8,7 +8,7 @@ using System.Net.Http;
 
 namespace FE.Identity.Servicios
 {
-    public class jobService : IJobService
+    public class jobService : IJobService2
     {
         public jobService()
         {

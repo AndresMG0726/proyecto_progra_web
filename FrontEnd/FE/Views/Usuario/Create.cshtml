@@ -4,63 +4,63 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Usuario</h4>
+
+<h4>Crear Usuario</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="IdRol" class="control-label"></label>
+Rol:
                 <select asp-for="IdRol" class ="form-control" asp-items="ViewBag.IdRol"></select>
             </div>
             <div class="form-group">
-                <label asp-for="Usuario1" class="control-label"></label>
+Usuario:
                 <input asp-for="Usuario1" class="form-control" />
                 <span asp-validation-for="Usuario1" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contrasenna" class="control-label"></label>
+Contraseña:
                 <input asp-for="Contrasenna" class="form-control" />
                 <span asp-validation-for="Contrasenna" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+Email:
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Telefono" class="control-label"></label>
+Telefono:
                 <input asp-for="Telefono" class="form-control" />
                 <span asp-validation-for="Telefono" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="NombreUsuario" class="control-label"></label>
+Nombrre
                 <input asp-for="NombreUsuario" class="form-control" />
                 <span asp-validation-for="NombreUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PrimerApellidoUsuario" class="control-label"></label>
+Primer apellido:
                 <input asp-for="PrimerApellidoUsuario" class="form-control" />
                 <span asp-validation-for="PrimerApellidoUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="SegundoApellidoUsuario" class="control-label"></label>
+Segundo apellido:
                 <input asp-for="SegundoApellidoUsuario" class="form-control" />
                 <span asp-validation-for="SegundoApellidoUsuario" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdJob" class="control-label"></label>
+Trabajo:
                 <select asp-for="IdJob" class ="form-control" asp-items="ViewBag.IdJob"></select>
             </div>
             <div class="form-group">
-                <label asp-for="IdDepartamento" class="control-label"></label>
+Departamento:
                 <select asp-for="IdDepartamento" class ="form-control" asp-items="ViewBag.IdDepartamento"></select>
             </div>
             <div class="form-group">
-                <label asp-for="FechaContratacion" class="control-label"></label>
+Fecha de contratacion:
                 <input asp-for="FechaContratacion" class="form-control" />
                 <span asp-validation-for="FechaContratacion" class="text-danger"></span>
             </div>
@@ -72,7 +72,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Regresar</a>
 </div>
 
 @section Scripts {

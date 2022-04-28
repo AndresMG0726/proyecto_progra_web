@@ -47,7 +47,7 @@ namespace FE.Controllers
         // GET: HorasExtras/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(horasExtraService.GetAll(), "CategoryId", "CategoryName");
+            ViewData["IdUsuario"] = new SelectList(usuarioService.GetAll(), "IdUsuario", "Usuario1");
             //ViewData["SupplierId"] = new SelectList(_context.Suppliers, "SupplierId", "CompanyName");
             return View();
         }
@@ -64,7 +64,7 @@ namespace FE.Controllers
                 horasExtraService.Insert(horasExtra);
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUsuario"] = new SelectList(horasExtraService.GetAll(), "IdUsuario", "Contrasenna", horasExtra.IdUsuario);
+            ViewData["IdUsuario"] = new SelectList(horasExtraService.GetAll(), "IdUsuario", "Usuario1", horasExtra.IdUsuario);
             return View(horasExtra);
         }
 
@@ -82,7 +82,7 @@ namespace FE.Controllers
                 return NotFound();
             }
 
-            ViewData["IdUsuario"] = new SelectList(horasExtraService.GetAll(), "IdUsuario", "Contrasenna", horasExtra.IdUsuario);
+            ViewData["IdUsuario"] = new SelectList(horasExtraService.GetAll(), "IdUsuario", "Usuario1", horasExtra.IdUsuario);
             return View(horasExtra);
         }
 
@@ -117,7 +117,7 @@ namespace FE.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdUsuario"] = new SelectList(horasExtraService.GetAll(), "IdUsuario", "Contrasenna", horasExtra.IdUsuario);        
+            ViewData["IdUsuario"] = new SelectList(horasExtraService.GetAll(), "IdUsuario", "Usuario1", horasExtra.IdUsuario);        
             return View(horasExtra);
         }
 

@@ -24,7 +24,7 @@ namespace FE.Controllers
         public async Task<IActionResult> Index()
         {
             //return View(await _context.Departamento.ToListAsync());
-                        return View(departamentoService.GetAll());
+            return View(departamentoService.GetAll());
         }
 
         // GET: Departamento/Details/5

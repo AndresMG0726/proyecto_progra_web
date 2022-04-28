@@ -4,20 +4,26 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear nuevo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DescripcionEstado)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Estado</h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
@@ -25,11 +31,17 @@
                 @Html.DisplayFor(modelItem => item.DescripcionEstado)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdEstado">Edit</a> |
+                <a asp-action="Edit" asp-route-id="@item.IdEstado">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.IdEstado">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdEstado">Delete</a>
+                <a asp-action="Delete" asp-route-id="@item.IdEstado">Eliminar</a>
             </td>
         </tr>
 }
     </tbody>
-</table>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

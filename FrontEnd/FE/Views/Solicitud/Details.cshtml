@@ -4,51 +4,51 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h4>Solicitud</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdSolicitud" />
+            <div class="form-group">
+Usuario:
+                <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"disabled="True"></select>
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Estado de la solicitud:
+                <select asp-for="IdEstado" class="form-control" asp-items="ViewBag.IdEstado"disabled="True"></select>
+                <span asp-validation-for="IdEstado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Tipo de solicitud:
+                <select asp-for="IdTipo" class="form-control" asp-items="ViewBag.IdTipo" disabled="True"></select>
+                <span asp-validation-for="IdTipo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Comentario del solicitante:
+                <input asp-for="ComentarioSolicitante" class="form-control" disabled="True"/>
+                <span asp-validation-for="ComentarioSolicitante" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Comentario del Encargado:
+                <input asp-for="ComentarioEncargado" class="form-control" disabled="True"/>
+                <span asp-validation-for="ComentarioEncargado" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Fecha de emicion:
+                <input asp-for="FechaEmicion" class="form-control" disabled="True"/>
+                <span asp-validation-for="FechaEmicion" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
 
 <div>
-    <h4>Solicitud</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ComentarioSolicitante)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ComentarioSolicitante)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ComentarioEncargado)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ComentarioEncargado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FechaEmicion)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FechaEmicion)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdEstadoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdEstadoNavigation.DescripcionEstado)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdTipoNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdTipoNavigation.DescripcionTipo)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuarioNavigation.Contrasenna)
-        </dd>
-    </dl>
+    <a asp-action="Index">Volver</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.IdSolicitud">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

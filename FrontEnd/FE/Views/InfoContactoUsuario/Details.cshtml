@@ -4,39 +4,41 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h4>Informacion de contacto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdInfo" />
+            <div class="form-group">
+Usuario:
+                <select asp-for="IdUsuario" class="form-control" asp-items="ViewBag.IdUsuario"disabled="True"></select>
+                <span asp-validation-for="IdUsuario" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Nombre:
+                <input asp-for="NombreCompletoContacto" class="form-control" disabled="True"/>
+                <span asp-validation-for="NombreCompletoContacto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Parentesco:
+                <select asp-for="IdRolCont" class="form-control" asp-items="ViewBag.IdRolCont"disabled="True"></select>
+                <span asp-validation-for="IdRolCont" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+Telefono de contacto:
+                <input asp-for="TelefonoContacto" class="form-control" disabled="True" />
+                <span asp-validation-for="TelefonoContacto" class="text-danger"></span>
+            </div>
+        </form>
+    </div>
+</div>
 
 <div>
-    <h4>InfoContactoUsuario</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NombreCompletoContacto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NombreCompletoContacto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelefonoContacto)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TelefonoContacto)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdRolContNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdRolContNavigation.DescRolCont)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdUsuarioNavigation.Contrasenna)
-        </dd>
-    </dl>
+    <a asp-action="Index">Volver</a>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.IdInfo">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

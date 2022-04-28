@@ -14,11 +14,13 @@ namespace FE.Controllers
     {
         private readonly IInfoContactoUsuarioService infoContactoUsuarioService;
         private readonly IRolContactoService rolcontactoService;
+        private readonly IUsuarioService usuarioService;
 
-        public InfoContactoUsuarioController(IInfoContactoUsuarioService _infoContactoUsuarioService, IRolContactoService _rolcontactoService)
+        public InfoContactoUsuarioController(IInfoContactoUsuarioService _infoContactoUsuarioService, IRolContactoService _rolcontactoService, IUsuarioService _usuarioService)
         {
             infoContactoUsuarioService = _infoContactoUsuarioService;
             rolcontactoService = _rolcontactoService;
+            usuarioService = _usuarioService;
         }
 
         // GET: InfoContactoUsuario

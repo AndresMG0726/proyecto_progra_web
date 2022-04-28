@@ -4,32 +4,45 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Crear nuevo</a>
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DescRolCont)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DescRolCont)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IdRolCont">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdRolCont">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdRolCont">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Rol de Contacto</h3>
+
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table class="table table-hover text-nowrap">
+                    <thead>
+                        <tr>
+                            <th>Rol de Contacto</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DescRolCont)
+                                </td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@item.IdRolCont">Editar</a> |
+                                    <a asp-action="Details" asp-route-id="@item.IdRolCont">Details</a> |
+                                    <a asp-action="Delete" asp-route-id="@item.IdRolCont">Eliminar</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

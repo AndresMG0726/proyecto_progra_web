@@ -4,42 +4,42 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Delete</h1>
+
 
 <h3>¿Esta seguro que desea eliminar?</h3>
 <div>
-    <h4>InfoContactoUsuario</h4>
+
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NombreCompletoContacto)
+Nombre:
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.NombreCompletoContacto)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelefonoContacto)
+Telefono:
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.TelefonoContacto)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdRolContNavigation)
+@*        <dt class = "col-sm-2">
+parentesco:
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IdRolContNavigation.DescRolCont)
         </dd class>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdUsuarioNavigation)
+Usuario:
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.IdUsuarioNavigation.Contrasenna)
-        </dd class>
+        </dd class>*@
     </dl>
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="IdInfo" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-action="Index">Volver</a>
     </form>
 </div>

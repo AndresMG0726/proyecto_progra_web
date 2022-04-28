@@ -103,7 +103,7 @@ namespace FE.Controllers
         public async Task<IActionResult> Edit(int id, [Bind("IdUsuario,IdRol,Usuario1,Contrasenna,Email,Telefono,NombreUsuario,PrimerApellidoUsuario,SegundoApellidoUsuario,IdJob,IdDepartamento,FechaContratacion")] Usuario usuario)
         {
             if (id != usuario.IdUsuario)
-            {
+             {
                 return NotFound();
             }
 

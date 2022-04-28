@@ -3,9 +3,6 @@
 @{
     ViewData["Title"] = "Edit";
 }
-
-<h1>Edit</h1>
-
 <h4>Estado</h4>
 <hr />
 <div class="row">
@@ -14,7 +11,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="IdEstado" />
             <div class="form-group">
-                <label asp-for="DescripcionEstado" class="control-label"></label>
+Estado solicitud:
                 <input asp-for="DescripcionEstado" class="form-control" />
                 <span asp-validation-for="DescripcionEstado" class="text-danger"></span>
             </div>
@@ -26,7 +23,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Volver</a>
 </div>
 
 @section Scripts {
